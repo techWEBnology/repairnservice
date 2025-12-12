@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>RoadCare Auto Service | Car Repair & Maintenance Centre</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+    <style>
+        :root{
+            --primary:#ff6b00;
+            --primary-dark:#e45f00;
+            --bg-dark:#0e1724;
+            --bg-light:#f5f7fb;
+            --text:#222;
+            --muted:#666;
+            --white:#fff;
+        }
+
+        *{margin:0;padding:0;box-sizing:border-box;}
+
+        body{
+            font-family:'Poppins',sans-serif;
+            color:var(--text);
+            background:var(--white);
+            line-height:1.6;
+        }
+
+        a{text-decoration:none;color:inherit;}
+        ul{list-style:none;}
+
+        .container{
+            max-width:1180px;
+            margin:0 auto;
+            padding:0 1.5rem;
+        }
+
+        .section{
+            padding:4.5rem 0;
+        }
+
+        .section-title{
+            text-align:center;
+            margin-bottom:2.5rem;
+        }
+        .section-title h2{
+            font-family:'Oswald',sans-serif;
+            font-size:2.4rem;
+            letter-spacing:1px;
+        }
+        .section-title span{
+            display:block;
+            text-transform:uppercase;
+            font-size:.85rem;
+            color:var(--primary);
+            letter-spacing:3px;
+            margin-bottom:.4rem;
+        }
+        .section-title p{
+            color:var(--muted);
+            font-size:.98rem;
+        }
+
+        /* Top bar */
+        .topbar{
+            background:var(--bg-dark);
+            color:var(--white);
+            font-size:.85rem;
+            padding:.4rem 0;
+        }
+        .topbar-inner{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            gap:1rem;
+        }
+        .topbar-left span,
+        .topbar-right span{
+            margin-right:1.2rem;
+            white-space:nowrap;
+        }
+        .topbar i{color:var(--primary);margin-right:.35rem;}
+
+        /* Header / nav */
+        header{
+            background:var(--white);
+            position:sticky;
+            top:0;
+            z-index:999;
+            box-shadow:0 2px 12px rgba(0,0,0,.08);
+        }
+        .nav{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:.8rem 0;
+        }
+        .logo{
+            display:flex;
+            align-items:center;
+            gap:.55rem;
+        }
+        .logo-icon{
+            background:var(--primary);
+            color:var(--white);
+            width:36px;
+            height:36px;
+            border-radius:4px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:1.2rem;
+        }
+        .logo-text{
+            font-family:'Oswald',sans-serif;
+            font-size:1.4rem;
+            letter-spacing:1px;
+        }
+        .logo-text span{color:var(--primary);}
+
+        .nav-links{
+            display:flex;
+            gap:1.6rem;
+            font-size:.92rem;
+            text-transform:uppercase;
+            font-weight:500;
+        }
+        .nav-links a:hover{color:var(--primary);}
+
+        .nav-cta{
+            display:flex;
+            align-items:center;
+            gap:.8rem;
+            font-size:.9rem;
+        }
+        .btn{
+            padding:.55rem 1.3rem;
+            border-radius:4px;
+            border:2px solid transparent;
+            cursor:pointer;
+            font-size:.85rem;
+            font-weight:600;
+            text-transform:uppercase;
+            letter-spacing:.5px;
+            background:var(--primary);
+            color:var(--white);
+        }
+        .btn:hover{background:var(--primary-dark);}
+        .btn-outline{
+            background:transparent;
+            color:var(--primary);
+            border-color:var(--primary);
+        }
+        .btn-outline:hover{
+            background:var(--primary);
+            color:var(--white);
+        }
+
+        /* Hero */
+        .hero{
+            background:
+              linear-gradient(115deg,rgba(14,23,36,.90),rgba(14,23,36,.96)),
+              url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+            color:var(--white);
+            padding:4.8rem 0 5.7rem;
+        }
+        .hero-grid{
+            display:grid;
+            grid-template-columns:1.4fr 1fr;
+            gap:3rem;
+            align-items:center;
+        }
+        .hero-badge{
+            font-size:.8rem;
+            text-transform:uppercase;
+            letter-spacing:3px;
+            color:var(--primary);
+            margin-bottom:.5rem;
+        }
+        .hero h1{
+            font-family:'Oswald',sans-serif;
+            font-size:3.1rem;
+            line-height:1.1;
+            margin-bottom:1rem;
+        }
+        .hero p{
+            color:#d0d6e3;
+            font-size:.98rem;
+            margin-bottom:1.5rem;
+        }
+        .hero-highlights{
+            display:flex;
+            flex-wrap:wrap;
+            gap:1.2rem;
+            font-size:.85rem;
+        }
+        .hero-highlights span{
+            display:flex;
+            align-items:center;
+            gap:.4rem;
+        }
+        .hero-highlights i{color:var(--primary);}
+        .hero-actions{
+            margin-top:1.6rem;
+            display:flex;
+            gap:1rem;
+            flex-wrap:wrap;
+        }
+
+        .hero-card{
+            background:rgba(11,18,30,.95);
+            padding:1.4rem 1.5rem;
+            border-radius:6px;
+            border:1px solid rgba(255,255,255,.08);
+        }
+        .hero-card h3{
+            font-size:1.1rem;
+            margin-bottom:.4rem;
+        }
+        .hero-card p{
+            font-size:.86rem;
+            color:#c2cad9;
+            margin-bottom:1rem;
+        }
+        .hero-card ul{
+            font-size:.86rem;
+        }
+        .hero-card li{
+            margin-bottom:.4rem;
+        }
+
+        /* Stats strip */
+        .stats{
+            background:var(--primary);
+            color:var(--white);
+            padding:1.4rem 0;
+        }
+        .stats-grid{
+            display:grid;
+            grid-template-columns:repeat(4,1fr);
+            gap:1.5rem;
+            text-align:center;
+            font-size:.9rem;
+        }
+        .stats-num{
+            font-family:'Oswald',sans-serif;
+            font-size:1.8rem;
+        }
+
+        /* Services */
+        .services{
+            background:var(--bg-light);
+        }
+        .services-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+            gap:1.8rem;
+        }
+        .service-card{
+            background:var(--white);
+            border-radius:6px;
+            overflow:hidden;
+            box-shadow:0 4px 16px rgba(0,0,0,.05);
+            transition:.3s;
+        }
+        .service-card:hover{transform:translateY(-6px);box-shadow:0 10px 26px rgba(0,0,0,.1);}
+        .service-img{
+            height:170px;
+            background-size:cover;
+            background-position:center;
+        }
+        .service-body{
+            padding:1.5rem;
+        }
+        .service-body h3{
+            font-size:1.2rem;
+            margin-bottom:.4rem;
+        }
+        .service-body p{
+            font-size:.9rem;
+            color:var(--muted);
+            margin-bottom:.9rem;
+        }
+        .service-list{
+            font-size:.85rem;
+            color:var(--muted);
+        }
+        .service-list li{
+            display:flex;
+            gap:.4rem;
+            margin-bottom:.3rem;
+        }
+        .service-list i{
+            margin-top:.15rem;
+            color:var(--primary);
+            font-size:.7rem;
+        }
+
+        /* Process */
+        .process{
+            background:var(--white);
+        }
+        .process-steps{
+            display:flex;
+            gap:1.7rem;
+            flex-wrap:wrap;
+            justify-content:space-between;
+            margin-top:2rem;
+        }
+        .step{
+            flex:1 1 180px;
+            text-align:center;
+        }
+        .step-circle{
+            width:56px;
+            height:56px;
+            border-radius:50%;
+            border:3px solid var(--primary);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-weight:700;
+            color:var(--primary);
+            margin:0 auto .7rem;
+        }
+        .step h4{
+            font-size:1rem;
+            margin-bottom:.2rem;
+        }
+        .step p{
+            font-size:.85rem;
+            color:var(--muted);
+        }
+
+        /* Why choose us */
+        .why-grid{
+            display:grid;
+            grid-template-columns:1.2fr 1fr;
+            gap:2.5rem;
+            align-items:center;
+        }
+        .why-points{
+            display:grid;
+            grid-template-columns:repeat(2,minmax(0,1fr));
+            gap:1.4rem;
+            margin-top:1.4rem;
+        }
+        .why-item h4{
+            font-size:.98rem;
+            margin-bottom:.3rem;
+        }
+        .why-item p{
+            font-size:.86rem;
+            color:var(--muted);
+        }
+        .why-badge{
+            font-size:.8rem;
+            text-transform:uppercase;
+            color:var(--primary);
+            letter-spacing:2px;
+            margin-bottom:.4rem;
+        }
+        .why-image{
+            border-radius:8px;
+            overflow:hidden;
+            box-shadow:0 6px 20px rgba(0,0,0,.18);
+        }
+        .why-image img{
+            width:100%;
+            display:block;
+        }
+
+        /* Testimonials */
+        .testimonials{
+            background:var(--bg-dark);
+            color:var(--white);
+        }
+        .testimonials .section-title h2{color:var(--white);}
+        .testimonials .section-title p{color:#d0d5e3;}
+        .reviews-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+            gap:1.6rem;
+        }
+        .review-card{
+            background:rgba(5,10,20,.9);
+            padding:1.5rem;
+            border-radius:6px;
+            border:1px solid rgba(255,255,255,.05);
+        }
+        .review-header{
+            display:flex;
+            align-items:center;
+            gap:1rem;
+            margin-bottom:.6rem;
+        }
+        .review-avatar{
+            width:44px;
+            height:44px;
+            border-radius:50%;
+            overflow:hidden;
+        }
+        .review-avatar img{width:100%;height:100%;object-fit:cover;}
+        .review-name{
+            font-size:.95rem;
+            font-weight:600;
+        }
+        .review-role{
+            font-size:.8rem;
+            color:#a1acc6;
+        }
+        .review-text{
+            font-size:.88rem;
+            color:#d4d8e4;
+            margin:.5rem 0;
+        }
+        .review-stars{
+            color:#ffcc33;
+            font-size:.8rem;
+        }
+
+        /* Contact / booking */
+        .contact{
+            background:var(--bg-light);
+        }
+        .contact-layout{
+            display:grid;
+            grid-template-columns:1.2fr 1fr;
+            gap:2rem;
+            align-items:start;
+        }
+        .form-box{
+            background:var(--white);
+            padding:1.8rem 1.8rem 2.1rem;
+            border-radius:6px;
+            box-shadow:0 6px 20px rgba(0,0,0,.06);
+        }
+        .form-box h3{
+            font-size:1.4rem;
+            margin-bottom:.3rem;
+        }
+        .form-box p{
+            font-size:.88rem;
+            color:var(--muted);
+            margin-bottom:1.2rem;
+        }
+        .form-grid{
+            display:grid;
+            grid-template-columns:repeat(2,minmax(0,1fr));
+            gap:1rem;
+        }
+        .form-group{
+            margin-bottom:1rem;
+        }
+        label{
+            display:block;
+            font-size:.8rem;
+            font-weight:600;
+            margin-bottom:.2rem;
+        }
+        input,select,textarea{
+            width:100%;
+            border:1px solid #ccd1dd;
+            border-radius:4px;
+            padding:.55rem .7rem;
+            font-size:.88rem;
+            font-family:'Poppins',sans-serif;
+            outline:none;
+            transition:border-color .2s, box-shadow .2s;
+        }
+        input:focus,select:focus,textarea:focus{
+            border-color:var(--primary);
+            box-shadow:0 0 0 2px rgba(255,107,0,.15);
+        }
+        textarea{resize:vertical;min-height:90px;}
+
+        .contact-info{
+            font-size:.9rem;
+        }
+        .info-block{
+            margin-bottom:1.4rem;
+        }
+        .info-block h4{
+            font-size:1rem;
+            margin-bottom:.3rem;
+        }
+        .info-block p{
+            color:var(--muted);
+            font-size:.9rem;
+        }
+        .hours-table{
+            font-size:.85rem;
+            width:100%;
+            border-collapse:collapse;
+            margin-top:.4rem;
+        }
+        .hours-table td{
+            padding:.18rem .1rem;
+        }
+        .hours-table td:first-child{
+            color:#444;
+            font-weight:500;
+        }
+
+        .map-embed{
+            margin-top:1.2rem;
+            border-radius:6px;
+            overflow:hidden;
+            box-shadow:0 4px 16px rgba(0,0,0,.18);
+        }
+        .map-embed iframe{
+            width:100%;
+            height:210px;
+            border:0;
+        }
+
+        /* Footer */
+        footer{
+            background:#060910;
+            color:#8a92a7;
+            padding:2.4rem 0 1.2rem;
+            font-size:.85rem;
+        }
+        .footer-top{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:space-between;
+            gap:1.8rem;
+            margin-bottom:1.4rem;
+        }
+        .footer-col h4{
+            color:var(--white);
+            font-size:1rem;
+            margin-bottom:.6rem;
+        }
+        .footer-links a{
+            display:block;
+            margin-bottom:.25rem;
+        }
+        .footer-links a:hover{color:var(--primary);}
+        .socials{
+            display:flex;
+            gap:.6rem;
+            margin-top:.5rem;
+        }
+        .socials a{
+            width:30px;
+            height:30px;
+            border-radius:50%;
+            border:1px solid #3b4254;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
+        .socials a:hover{
+            border-color:var(--primary);
+            color:var(--primary);
+        }
+        .footer-bottom{
+            text-align:center;
+            border-top:1px solid #151b29;
+            padding-top:.8rem;
+        }
+
+        /* Responsive */
+        @media(max-width:900px){
+            .hero-grid{grid-template-columns:1fr;}
+            .hero{padding:4rem 0 4.6rem;}
+            .stats-grid{grid-template-columns:repeat(2,1fr);}
+            .contact-layout{grid-template-columns:1fr;}
+            .why-grid{grid-template-columns:1fr;}
+        }
+        @media(max-width:720px){
+            .topbar-inner{flex-direction:column;font-size:.8rem;}
+            .nav{flex-wrap:wrap;gap:.8rem;}
+            .nav-links{display:none;} /* simple static mobile: you can add JS toggle later */
+            .stats-grid{grid-template-columns:1fr 1fr;}
+            .process-steps{flex-direction:column;}
+            .why-points{grid-template-columns:1fr;}
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top bar -->
+    <div class="topbar">
+        <div class="container topbar-inner">
+            <div class="topbar-left">
+                <span><i class="fas fa-phone-alt"></i>24/7 Towing: +91-98765-43210</span>
+                <span><i class="fas fa-location-dot"></i>NH-24 Bypass, Auto Market, Lucknow</span>
+            </div>
+            <div class="topbar-right">
+                <span><i class="fas fa-clock"></i>Mon–Sat: 8:00 AM – 8:00 PM</span>
+                <span><i class="fas fa-envelope"></i>service@roadcareauto.com</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav">
+            <a href="#home" class="logo">
+                <div class="logo-icon"><i class="fas fa-wrench"></i></div>
+                <div class="logo-text">ROAD<span>CARE</span></div>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#why">Why Us</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Book Service</a></li>
+            </ul>
+
+            <div class="nav-cta">
+                <span style="font-size:.8rem;text-transform:uppercase;">Emergency?</span>
+                <a href="tel:+919876543210" class="btn-outline btn">Call Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="container hero-grid">
+            <div>
+                <div class="hero-badge">Multi-brand car repair centre</div>
+                <h1>Reliable Service<br>For Every Kilometre</h1>
+                <p>
+                    RoadCare Auto Service handles everything from routine oil changes to complete engine rebuilds.
+                    Our technicians use OBD‑II computer diagnostics and OEM‑approved parts to keep your car safe,
+                    efficient, and road‑ready.
+                </p>
+                <div class="hero-highlights">
+                    <span><i class="fas fa-check-circle"></i>ASE‑certified technicians</span>
+                    <span><i class="fas fa-check-circle"></i>Warranty-safe servicing</span>
+                    <span><i class="fas fa-check-circle"></i>Digital job cards & photos</span>
+                </div>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn">Book Service</a>
+                    <a href="#services" class="btn-outline">View All Services</a>
+                </div>
+            </div>
+
+            <div class="hero-card">
+                <h3>Same‑Day Service Promise</h3>
+                <p>For most periodic services and minor repairs, drop your vehicle in the morning and drive it home the same evening.</p>
+                <ul>
+                    <li>• Periodic maintenance packages for every 10,000 km</li>
+                    <li>• Genuine engine oil, filters, and brake fluids</li>
+                    <li>• Detailed health report shared over WhatsApp</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats">
+        <div class="container stats-grid">
+            <div>
+                <div class="stats-num">15+</div>
+                <div>Years of workshop experience</div>
+            </div>
+            <div>
+                <div class="stats-num">40K+</div>
+                <div>Vehicles serviced till date</div>
+            </div>
+            <div>
+                <div class="stats-num">98%</div>
+                <div>Jobs delivered on time</div>
+            </div>
+            <div>
+                <div class="stats-num">4.9★</div>
+                <div>Average customer rating</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section services">
+        <div class="container">
+            <div class="section-title">
+                <span>Services</span>
+                <h2>Complete Car Care Under One Roof</h2>
+                <p>From essential maintenance to complex mechanical work, our service bays are equipped for hatchbacks, sedans, SUVs and commercial vehicles.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Diagnostics -->
+                <article class="service-card">
+                    <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1581089781785-603411fa81e5?q=80&w=900&auto=format&fit=crop');"></div>
+                    <div class="service-body">
+                        <h3>Computer Diagnostics</h3>
+                        <p>We plug directly into your vehicle’s ECU using professional‑grade scanners to read live data, error codes and sensor performance.</p>
+                        <ul class="service-list">
+                            <li><i class="fas fa-circle"></i>Check‑engine light inspection</li>
+                            <li><i class="fas fa-circle"></i>ABS / airbag system scan</li>
+                            <li><i class="fas fa-circle"></i>Battery & alternator health check</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Routine service -->
+                <article class="service-card">
+                    <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=900&auto=format&fit=crop');"></div>
+                    <div class="service-body">
+                        <h3>Periodic Maintenance</h3>
+                        <p>Scheduled servicing every 10,000 km keeps your engine lubricated, filters clean and warranty valid, improving fuel economy and life.</p>
+                        <ul class="service-list">
+                            <li><i class="fas fa-circle"></i>Engine oil & filter replacement</li>
+                            <li><i class="fas fa-circle"></i>Air, fuel & cabin filter cleaning</li>
+                            <li><i class="fas fa-circle"></i>All‑fluid top‑up & 40‑point check</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Brakes & tyres -->
+                <article class="service-card">
+                    <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1619646020185-d536e6f9b4d2?q=80&w=900&auto=format&fit=crop');"></div>
+                    <div class="service-body">
+                        <h3>Brakes, Tyres & Suspension</h3>
+                        <p>Stopping power and road grip are critical. We measure pad thickness, rotor run‑out and tyre tread depth before recommending parts.</p>
+                        <ul class="service-list">
+                            <li><i class="fas fa-circle"></i>Ceramic brake pad & disc change</li>
+                            <li><i class="fas fa-circle"></i>Wheel alignment & balancing</li>
+                            <li><i class="fas fa-circle"></i>Shock absorber & bush replacement</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- AC & cooling -->
+                <article class="service-card">
+                    <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1607860108855-48f87b552a3a?q=80&w=900&auto=format&fit=crop');"></div>
+                    <div class="service-body">
+                        <h3>AC & Cooling System</h3>
+                        <p>We restore cabin comfort by checking refrigerant pressure, leaks, condenser condition and coolant circulation to prevent overheating.</p>
+                        <ul class="service-list">
+                            <li><i class="fas fa-circle"></i>AC gas recharge & leak detection</li>
+                            <li><i class="fas fa-circle"></i>Radiator flush & thermostat check</li>
+                            <li><i class="fas fa-circle"></i>Water pump & coolant hose repair</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process & Why choose us -->
+    <section id="why" class="section process">
+        <div class="container">
+            <div class="section-title">
+                <span>How it works</span>
+                <h2>Simple, Transparent Service Journey</h2>
+            </div>
+
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-circle">1</div>
+                    <h4>Book Slot</h4>
+                    <p>Choose date, time and required service from our online form or call our service advisor.</p>
+                </div>
+                <div class="step">
+                    <div class="step-circle">2</div>
+                    <h4>Vehicle Inspection</h4>
+                    <p>We perform a multi‑point inspection and share photos, estimates and options before any work starts.</p>
+                </div>
+                <div class="step">
+                    <div class="step-circle">3</div>
+                    <h4>Expert Repair</h4>
+                    <p>Technicians follow brand‑recommended procedures using torque‑wrench calibration and safety checks.</p>
+                </div>
+                <div class="step">
+                    <div class="step-circle">4</div>
+                    <h4>Quality Check & Delivery</h4>
+                    <p>Every car goes through a test drive, final inspection and exterior wash before handover.</p>
+                </div>
+            </div>
+
+            <div class="section" style="padding-top:3.5rem;">
+                <div class="why-grid">
+                    <div>
+                        <div class="why-badge">Why drivers trust roadcare</div>
+                        <h2 style="font-size:2rem;">Built Like an Authorised Workshop, Priced Like a Neighbourhood Garage</h2>
+                        <p style="margin-top:.6rem;color:var(--muted);font-size:.95rem;">
+                            RoadCare combines OEM‑grade tools such as hydraulic lifts, pneumatic impact systems and
+                            scan tools with honest, line‑item billing so you always know what you are paying for.
+                        </p>
+                        <div class="why-points">
+                            <div class="why-item">
+                                <h4>Warranty‑Friendly Service</h4>
+                                <p>We follow manufacturer‑specified service intervals and keep digital records that help retain warranty and resale value.</p>
+                            </div>
+                            <div class="why-item">
+                                <h4>Genuine & OEM‑Approved Parts</h4>
+                                <p>From brake pads to timing belts, we use parts from reputed brands that match or exceed factory specifications.</p>
+                            </div>
+                            <div class="why-item">
+                                <h4>Transparent Estimates</h4>
+                                <p>You receive labour vs parts breakup, estimated timelines and approvals over call/SMS before work starts.</p>
+                            </div>
+                            <div class="why-item">
+                                <h4>Clean, Safe Workshop</h4>
+                                <p>Fume extraction, designated oil‑waste zones and floor markings ensure a safe environment for customers and staff.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="why-image">
+                        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=900&auto=format&fit=crop" alt="Technician working in car service bay">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="reviews" class="section testimonials">
+        <div class="container">
+            <div class="section-title">
+                <span>Customer feedback</span>
+                <h2>Drivers Who Service With Us Stay With Us</h2>
+                <p>Most of our new customers come through word‑of‑mouth from families and fleet owners who rely on us for years.</p>
+            </div>
+
+            <div class="reviews-grid">
+                <article class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/46.jpg" alt="Customer 1">
+                        </div>
+                        <div>
+                            <div class="review-name">Amit Verma</div>
+                            <div class="review-role">Honda City Owner</div>
+                        </div>
+                    </div>
+                    <p class="review-text">
+                        Got my 80,000 km service done here. They showed me the old filters, shared pictures of every step and the bill was 30% lower than the dealership.
+                    </p>
+                    <div class="review-stars">
+                        ★★★★★
+                    </div>
+                </article>
+
+                <article class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Customer 2">
+                        </div>
+                        <div>
+                            <div class="review-name">Neha Sharma</div>
+                            <div class="review-role">Swift Dzire Taxi Fleet</div>
+                        </div>
+                    </div>
+                    <p class="review-text">
+                        Our cabs run over 200 km daily, so downtime hurts. RoadCare’s same‑day delivery and night‑shift service keeps my fleet earning.
+                    </p>
+                    <div class="review-stars">
+                        ★★★★★
+                    </div>
+                </article>
+
+                <article class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Customer 3">
+                        </div>
+                        <div>
+                            <div class="review-name">Rohit Singh</div>
+                            <div class="review-role">Hyundai Creta Owner</div>
+                        </div>
+                    </div>
+                    <p class="review-text">
+                        They fixed a complex AC cooling issue that two other garages couldn’t solve. The technician explained the exact leak point and parts replaced.
+                    </p>
+                    <div class="review-stars">
+                        ★★★★☆
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Booking -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="section-title">
+                <span>Book your visit</span>
+                <h2>Schedule a Service or Get a Quick Estimate</h2>
+                <p>Share your car details and concern. Our service advisor will call you within 15 minutes during working hours.</p>
+            </div>
+
+            <div class="contact-layout">
+                <!-- Form -->
+                <div class="form-box">
+                    <h3>Service Booking Form</h3>
+                    <p>Fill in the details below. Fields marked * are mandatory.</p>
+                    <form>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Full Name *</label>
+                                <input type="text" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Mobile Number *</label>
+                                <input type="tel" placeholder="+91‑XXXXXXXXXX" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" placeholder="you@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label>Preferred Date *</label>
+                                <input type="date" required>
+                            </div>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Car Make & Model *</label>
+                                <input type="text" placeholder="e.g. Maruti Baleno" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Approx. Odometer (km)</label>
+                                <input type="number" placeholder="e.g. 45000">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Service Type *</label>
+                            <select required>
+                                <option value="">Select Service</option>
+                                <option>Periodic Maintenance</option>
+                                <option>Engine / Transmission Repair</option>
+                                <option>Brakes / Suspension</option>
+                                <option>AC & Cooling</option>
+                                <option>General Check‑up / Not Sure</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Describe the issue</label>
+                            <textarea placeholder="Share any noise, warning light, leakage or performance issues you have noticed."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn" style="width:100%;margin-top:.4rem;">Submit Request</button>
+                    </form>
+                </div>
+
+                <!-- Info + Map -->
+                <div class="contact-info">
+                    <div class="info-block">
+                        <h4>Workshop Address</h4>
+                        <p>RoadCare Auto Service Centre<br>
+                           Plot 21, NH‑24 Bypass, Auto Market,<br>
+                           Lucknow, Uttar Pradesh 226010</p>
+                    </div>
+
+                    <div class="info-block">
+                        <h4>Contact Details</h4>
+                        <p><strong>Service Helpline:</strong> +91‑98765‑43210<br>
+                           <strong>Email:</strong> service@roadcareauto.com</p>
+                        <p>For highway breakdowns, our towing partner can reach within 45–60 minutes in most parts of the city.</p>
+                    </div>
+
+                    <div class="info-block">
+                        <h4>Opening Hours</h4>
+                        <table class="hours-table">
+                            <tr><td>Mon – Sat</td><td>08:00 AM – 08:00 PM</td></tr>
+                            <tr><td>Sunday</td><td>Only emergency repairs (by prior call)</td></tr>
+                            <tr><td>Public Holidays</td><td>Check status on Google Maps listing</td></tr>
+                        </table>
+                    </div>
+
+                    <div class="map-embed">
+                        <iframe
+                          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.09709278382!2d80.94615931504308!3d26.872281783145535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be2f9d8b8c8cf%3A0x7d5a4b2f1f98d2b7!2sLucknow%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                          loading="lazy"
+                          referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-col" style="max-width:320px;">
+                    <div class="logo">
+                        <div class="logo-icon"><i class="fas fa-wrench"></i></div>
+                        <div class="logo-text">ROAD<span>CARE</span></div>
+                    </div>
+                    <p style="margin-top:.4rem;">
+                        Professional multi‑brand car repair and maintenance centre specialising in periodic service, diagnostics and safety‑critical repairs.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="#services">Our Services</a>
+                        <a href="#why">Why Choose Us</a>
+                        <a href="#reviews">Customer Reviews</a>
+                        <a href="#contact">Book Appointment</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Workshop</h4>
+                    <p>NH‑24 Bypass, Auto Market,<br>Lucknow, Uttar Pradesh 226010</p>
+                    <p style="margin-top:.3rem;"><strong>Phone:</strong> +91‑98765‑43210</p>
+                    <p><strong>Email:</strong> service@roadcareauto.com</p>
+                    <div class="socials">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-x-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                © 2025 RoadCare Auto Service Centre. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
